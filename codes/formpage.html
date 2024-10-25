@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enroll courses/designstudio.com</title>
+    <link rel="stylesheet" href="mainpage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bubblegum+Sans&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div id="logo">
+            <img src="../images/LOGO-removebg-preview.png" height="141px" width="190px">
+        </div>
+        <ul>
+            <li><a href="MAINPAGE.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <div class="btnul">
+
+
+                <a href="https://mail.google.com"><button class="btn">email us</button></a>
+                <button class="btn">queries</button>
+
+            </div>
+
+        </ul>
+    </nav>
+
+    <section id="contact">
+
+        <div id="formbox">
+            <form action="">
+
+                <div class="form">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form">
+                    <label for="name">Email:</label>
+                    <input type="email" name="name" id="name" placeholder="Enter your email">
+                </div>
+                <div class="form">
+                    <label for="name">Phone no.:</label>
+                    <input type="phone" name="name" id="name" placeholder="Enter your phone no.">
+                </div>
+                <div class="form">
+                    <h4 class="h4">Type of design in which you are interested: </h4>
+
+                    <select name="type" id="type">
+
+                        <option value="NO OPTION">TYPE OF DESIGN</option>
+                        <option value="ARCHITECTURAL DESIGN">ARCHITECTURAL DESIGN</option>
+                        <option value="AUTOMOBILE DESIGN">AUTOMOBILE DESIGN</option>
+                        <option value="GRAPHICS DESIGN">GRAPHICS DESIGN</option>
+                        <option value="PRODUCT DESIGN">PRODUCT DESIGN</option>
+                        <option value="FASHION DESIGN">FASHION DESIGN</option>
+                        <option value="JEWELLERY DESIGN">JEWELLERY DESIGN</option>
+
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="bff">
+            <a href="thanks.html"><button class="bform">Submit</button></a>
+        </div>
+    </section>
+    <footer>
+        www.designstudio.com
+        <br>
+        All copyrights reserved &copy;2024
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const nameInput = document.getElementById("name");
+            const emailInput = document.querySelector("input[type='email']");
+            const phoneInput = document.querySelector("input[type='phone']");
+            const designType = document.getElementById("type");
+            const submitButton = document.querySelector(".bform");
+
+            // Validation function
+            function validateForm() {
+                // Check if name is not empty
+                if (nameInput.value.trim() === "") {
+                    alert("Please enter your name.");
+                    return false;
+                }
+                // Check if email is valid
+                if (!validateEmail(emailInput.value)) {
+                    alert("Please enter a valid email address.");
+                    return false;
+                }
+                // Check if phone number is not empty
+                if (phoneInput.value.trim() === "") {
+                    alert("Please enter your phone number.");
+                    return false;
+                }
+                // Check if a design type is selected
+                if (designType.value === "NO OPTION") {
+                    alert("Please select a design type.");
+                    return false;
+                }
+                return true;
+            }
+
+            // Email validation function
+            function validateEmail(email) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+
+            // Form submission handler
+            submitButton.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent form submission
+                if (validateForm()) {
+                    alert("Form submitted successfully!");
+                    // Optionally, you can submit the form here
+                    form.submit();
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
